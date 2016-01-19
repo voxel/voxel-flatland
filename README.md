@@ -1,0 +1,6 @@
+# voxel-flatland
+
+## License
+
+MIT
+

@@ -1,0 +1,17 @@
+{
+  "name": "voxel-flatland",
+  "description": "",
+  "version": "0.0.1",
+  "main": "voxel-flatland.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:deathcap/voxel-flatland.git"
+  },
+  "keywords": [
+    "voxel",
+    "plugin"
+  ],
+  "dependencies": {
+  },
+  "license": "MIT"
+}
