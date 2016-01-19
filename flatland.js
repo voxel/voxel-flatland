@@ -33,7 +33,7 @@ Flatland.prototype.disable = function() {
 Flatland.prototype.missingChunk = function(position) {
   console.log('missingChunk',position);
 
-  if (position[1] !== 0) return; // everything besides y=0 is all air, above and below
+  if (position[1] > 0) return; // everything above y=0 is air
 
   var blockIndex = this.registry.getBlockIndex(this.block);
   if (!blockIndex) {
