@@ -15,6 +15,9 @@ function Flatland(game, opts) {
   this.registry = game.plugins.get('voxel-registry');
   if (!this.registry) throw new Error('voxel-flatland requires voxel-registry plugin');
 
+  this.block = opts.block;
+  if (!this.block) throw new Error('voxel-flatland requires block option');
+
   this.enable();
 }
 
@@ -32,7 +35,10 @@ Flatland.prototype.missingChunk = function(position) {
 
   if (position[1] !== 0) return; // everything besides y=0 is all air, above and below
 
-  var grass = this.registry.getBlockIndex('grass');
+  var blockIndex = this.registry.getBlockIndex(this.block);
+  if (!blockIndex) {
+    throw new Error('voxel-flatland unable to find block of name: '+this.block);
+  };
 
   var width = this.game.chunkSize;
   var pad = this.game.chunkPad;
@@ -46,13 +52,11 @@ Flatland.prototype.missingChunk = function(position) {
   for (var x = 0; x < this.game.chunkSize; ++x) {
     for (var z = 0; z < this.game.chunkSize; ++z) {
       for (var y = 0; y < this.game.chunkSize; ++y) {
-        voxels.set(x,y,z, grass);
+        voxels.set(x,y,z, blockIndex);
       }
     }
   }
 
-  var voxels = new this.game.arrayType(buffer);
-  //var chunk = ndarray(voxels, [this.game.chunkSize+this.game.chunkPad, this.game.chunkSize+this.game.chunkPad, this.game.chunkSize+this.game.chunkPad]);
   var chunk = voxelsPadded;
   chunk.position = position;
 
