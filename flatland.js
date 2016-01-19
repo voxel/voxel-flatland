@@ -45,11 +45,9 @@ Flatland.prototype.missingChunk = function(position) {
 
   for (var x = 0; x < this.game.chunkSize; ++x) {
     for (var z = 0; z < this.game.chunkSize; ++z) {
-      var y = 50;
-
-      //y=1;voxels.set(x,y,z, (pos[0]+pos[2]) & 1 ? this.opts.materials.oreCoal : this.opts.materials.oreIron); continue; // flat checkerboard for testing chunk boundaries
-
-      voxels.set(x,y,z, grass);
+      for (var y = 0; y < this.game.chunkSize; ++y) {
+        voxels.set(x,y,z, grass);
+      }
     }
   }
 
