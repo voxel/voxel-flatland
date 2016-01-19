@@ -1,7 +1,7 @@
 {
   "name": "voxel-flatland",
   "description": "simple flat land terrain generator (voxel.js plugin)",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "main": "flatland.js",
   "repository": {
     "type": "git",
