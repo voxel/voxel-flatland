@@ -10,6 +10,10 @@ Requires [voxel-registry](https://github.com/voxel/voxel-registry). Load with [v
 
 `block` (required): name of a block to fill the terrain with, for example `bedrock` (provided by [voxel-bedrock](https://github.com/voxel/voxel-bedrock).
 
+The voxel-engine-stackgl game options should have `generateChunks: false`. voxel-flatland
+will listen on `game.voxel` for the `missingChunk` event and generate the new
+chunks. The generator can be unregistered by disabling the plugin.
+
 ## How it works
 
 Listens for `missingChunk` events from `game.voxels` (emitted by
